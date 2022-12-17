@@ -41,9 +41,25 @@ router.post("", async (req, res) => {
 
 router.get("", async (req, res) => {
   try {
-    return res.send("success");
+    const records = await model.find().lean().exec();
+    return res.status(200).json({ data: records, length: records?.length });
   } catch (error) {
     return res.send(error.message);
+  }
+});
+
+router.get("/search", async (req, res) => {
+  try {
+    let { hostname } = req.query;
+    hostname =
+      hostname.charAt(0).toUpperCase() + hostname.slice(1, hostname.length);
+    if (!hostname) {
+      return res.status(400).send("Please enter hostname or date ranges");
+    }
+    const records = await model.find({ hostName: hostname });
+    return res.status(200).send(records);
+  } catch (error) {
+    return res.status(500).send(error.message);
   }
 });
 

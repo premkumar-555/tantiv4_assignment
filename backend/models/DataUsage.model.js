@@ -9,7 +9,7 @@ const DataUsageSchema = new mongoose.Schema(
     download: { type: Number, required: true },
     upload: { type: Number, required: true },
     useageSeconds: { type: Number, required: true },
-    createdAt: { type: Date, required: true },
+    createdAt: { type: String, required: true },
   },
   {
     timeStamps: false,
