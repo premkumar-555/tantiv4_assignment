@@ -1,0 +1,12 @@
+#header {
+  font-weight: bold;
+  color: blue;
+  font-size: 1.25rem;
+}
+#div1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border: 1px solid black;
+}
