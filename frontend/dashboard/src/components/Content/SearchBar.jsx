@@ -14,6 +14,7 @@ export default function CustomizedInputBase({
   setPageData,
   setLength,
   getData,
+  setLoading,
 }) {
   const [filteredData, setFilteredData] = useState([]);
   const [search, setSearch] = useState("");
@@ -23,9 +24,10 @@ export default function CustomizedInputBase({
       alert("Please enter host name");
       return;
     }
+    setLoading(true);
     try {
       const { data } = await axios.get(
-        `http://localhost:2500/datausage/search?hostname=${search}`
+        `https://dashboard-tantiv4.onrender.com/datausage/search?hostname=${search}`
       );
       let formatedData = DataForamtter(data);
       setRecords(formatedData);
@@ -34,6 +36,7 @@ export default function CustomizedInputBase({
     } catch (error) {
       console.log("error :", error.message);
     }
+    setLoading(false);
   };
 
   return (
@@ -46,6 +49,10 @@ export default function CustomizedInputBase({
         justifyContent: "space-evenly",
         width: "30%",
         height: "40px",
+        border: "1px solid lightgrey",
+        mt: "0.5rem",
+        borderRadius: "1rem",
+        boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
       }}
     >
       <InputBase

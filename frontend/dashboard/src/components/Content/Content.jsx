@@ -6,15 +6,20 @@ import "./Content.css";
 import axios from "axios";
 import DataForamtter from "../../middlewares/DataFormatter";
 import BasicPagination from "./Pagination";
+import LinearColor from "./Loader";
 
 const Content = () => {
   const [records, setRecords] = useState([]);
   const [pageData, setPageData] = useState([]);
   const [length, setLength] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const getData = async () => {
+    setLoading(true);
     try {
-      const { data } = await axios.get("http://localhost:2500/datausage");
+      const { data } = await axios.get(
+        "https://dashboard-tantiv4.onrender.com/datausage"
+      );
       if (data) {
         const value = DataForamtter(data.data);
         setLength(value.length);
@@ -24,6 +29,7 @@ const Content = () => {
     } catch (error) {
       console.log("error : ", error.message);
     }
+    setLoading(false);
   };
 
   const setPages = (page) => {
@@ -57,14 +63,21 @@ const Content = () => {
           setRecords={setRecords}
           setPageData={setPageData}
           setLength={setLength}
+          setLoading={setLoading}
         />
       </div>
-      <DataUsageTable records={pageData} />
-      <BasicPagination
-        length={length}
-        sx={{ marginLeft: "50%" }}
-        setPages={setPages}
-      />
+      {loading ? (
+        <LinearColor />
+      ) : (
+        <>
+          <DataUsageTable records={pageData} />
+          <BasicPagination
+            length={length}
+            sx={{ marginLeft: "50%" }}
+            setPages={setPages}
+          />
+        </>
+      )}
     </Box>
   );
 };
