@@ -7,6 +7,7 @@ export default function BasicPagination({ length, setPages }) {
   const styles = {
     display: "flex",
     justifyContent: "flex-end",
+    width: "90%",
   };
   const handleChange = (event, value) => {
     setpage(value);

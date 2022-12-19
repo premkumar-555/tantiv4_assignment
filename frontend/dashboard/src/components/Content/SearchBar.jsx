@@ -47,7 +47,7 @@ export default function CustomizedInputBase({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-evenly",
-        width: "30%",
+        width: "auto",
         height: "40px",
         border: "1px solid lightgrey",
         mt: "0.5rem",

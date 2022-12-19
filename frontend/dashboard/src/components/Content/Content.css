@@ -4,9 +4,11 @@
   font-size: 1.25rem;
 }
 #div1 {
-  width: 100%;
+  width: 95%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: "auto";
+  flex-wrap: wrap;
   margin-bottom: 0.5rem;
 }

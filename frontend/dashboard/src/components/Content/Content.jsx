@@ -45,7 +45,7 @@ const Content = () => {
   return (
     <Box
       sx={{
-        width: "73vw",
+        width: "65%",
         height: "86vh",
         display: "flex",
         flexDirection: "column",
@@ -71,11 +71,7 @@ const Content = () => {
       ) : (
         <>
           <DataUsageTable records={pageData} />
-          <BasicPagination
-            length={length}
-            sx={{ marginLeft: "50%" }}
-            setPages={setPages}
-          />
+          <BasicPagination length={length} setPages={setPages} />
         </>
       )}
     </Box>

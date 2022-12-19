@@ -9,7 +9,7 @@ function DataUsageTable({ records }) {
         striped
         bordered
         hover
-        style={{ marginBottom: "0.25rem", width: "70vw" }}
+        style={{ marginBottom: "0.25rem", width: "95%" }}
       >
         <thead>
           <tr>
