@@ -5,7 +5,12 @@ import { v4 as uuid } from "uuid";
 function DataUsageTable({ records }) {
   return (
     <>
-      <Table striped bordered hover style={{ textAlign: "center" }}>
+      <Table
+        striped
+        bordered
+        hover
+        style={{ marginBottom: "0.25rem", width: "70vw" }}
+      >
         <thead>
           <tr>
             <th>Host Name</th>

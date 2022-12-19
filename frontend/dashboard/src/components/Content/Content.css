@@ -4,9 +4,9 @@
   font-size: 1.25rem;
 }
 #div1 {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
-  border: 1px solid black;
+  margin-bottom: 0.5rem;
 }

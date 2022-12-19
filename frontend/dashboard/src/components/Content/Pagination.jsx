@@ -4,19 +4,24 @@ import Pagination from "@mui/material/Pagination";
 
 export default function BasicPagination({ length, setPages }) {
   const [page, setpage] = useState(1);
-
+  const styles = {
+    display: "flex",
+    justifyContent: "flex-end",
+  };
   const handleChange = (event, value) => {
     setpage(value);
     setPages(value);
   };
   return (
-    <Stack spacing={2}>
-      <Pagination
-        page={page}
-        count={Math.ceil(length / 10)}
-        color="primary"
-        onChange={handleChange}
-      />
-    </Stack>
+    <div style={styles}>
+      <Stack spacing={2}>
+        <Pagination
+          page={page}
+          count={Math.ceil(length / 10)}
+          color="primary"
+          onChange={handleChange}
+        />
+      </Stack>
+    </div>
   );
 }

@@ -39,20 +39,25 @@ const Content = () => {
   return (
     <Box
       sx={{
-        width: "83vw",
+        width: "73vw",
         height: "86vh",
         display: "flex",
         flexDirection: "column",
         margin: "2.5vh auto",
-        border: "1px solid black",
-        // justifyContent: "center",
-        // alignItems: "center",
+        // border: "1px solid black",
+        justifyContent: "flex-start",
+        boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
         padding: "0 1.5vw",
       }}
     >
       <div id="div1">
         <h3 id="header">Data Usages</h3>
-        <CustomizedInputBase />
+        <CustomizedInputBase
+          getData={getData}
+          setRecords={setRecords}
+          setPageData={setPageData}
+          setLength={setLength}
+        />
       </div>
       <DataUsageTable records={pageData} />
       <BasicPagination

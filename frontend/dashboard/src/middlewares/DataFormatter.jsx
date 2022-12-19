@@ -4,7 +4,7 @@ const DataForamtter = (data) => {
     unikDates = {};
   for (let i = 0; i < data.length; i++) {
     let hostName = data[i]["hostName"],
-      date = data[i]["createdAt"].split("T")[0];
+      date = new Date(`${data[i]["createdAt"]}`).toISOString().split("T")[0];
     if (!(hostName in unikHostNames)) {
       unikHostNames[hostName] = hostName;
     }
@@ -18,7 +18,9 @@ const DataForamtter = (data) => {
         upload = 0;
       for (let i = 0; i < data.length; i++) {
         let hostName = data[i]["hostName"],
-          createdAt = data[i]["createdAt"].split("T")[0];
+          createdAt = new Date(`${data[i]["createdAt"]}`)
+            .toISOString()
+            .split("T")[0];
         if (hostName === host && date === createdAt) {
           upload += +data[i]["upload"];
           download += +data[i]["download"];
